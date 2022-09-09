@@ -12,3 +12,7 @@ export const store = configureStore({
     return getDefaultMiddleware().concat(userApi.middleware);
   },
 });
+
+// optional, but required for refetchOnFocus/refetchOnReconnect behaviors
+// see `setupListeners` docs - takes an optional callback as the 2nd arg for customization
+setupListeners(store.dispatch);
