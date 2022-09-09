@@ -1,10 +1,10 @@
 import Counter from "./features/counter/Counter";
-import Users from "./features/users/Users";
+import Users from "./features/user/User";
 
 function App() {
   return (
     <main className="App">
-      <Counter />
+      {/* <Counter /> */}
       <Users />
     </main>
   );
