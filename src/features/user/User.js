@@ -5,12 +5,17 @@ import UserDetails from "./UserDetails";
 import { useGetUserByIdQuery } from "./userService";
 
 const Users = () => {
-  const { data, error, isLoading } = useGetUserByIdQuery("1");
+  const [userId, setUserId] = React.useState("");
+
+  const { data, error, isLoading } = useGetUserByIdQuery(userId);
+
   return (
     <>
       <section className="overflow-hidden bg-white shadow sm:rounded-lg">
         <input
           type="text"
+          value={userId}
+          onChange={(e) => setUserId(e.target.value)}
           placeholder="ID"
           className="text-3xl text-gray-500"
         />
@@ -29,14 +34,16 @@ const Users = () => {
             </a>
           </p>
         </header>
-        <div className="border-t border-gray-200 w-full">
-          {data && <UserDetails userDetails={data} />}
-          {isLoading && <Spinner />}
-          {error && !data && (
+        <div className="border-t border-gray-200 w-full bg-red">
+          {error ? (
             <Error
               errorMessage={error?.message || "oops! something flopped!"}
             />
-          )}
+          ) : isLoading ? (
+            <Spinner />
+          ) : data ? (
+            <UserDetails userDetails={data} />
+          ) : null}
         </div>
       </section>
     </>
