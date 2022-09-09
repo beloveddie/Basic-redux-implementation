@@ -17,6 +17,7 @@ const Users = () => {
             Gotten from the{" "}
             <a
               href="https://jsonplaceholder.typicode.com/users"
+              target="__blank"
               className="font-medium text-indigo-600 hover:text-indigo-500"
             >
               JSON placeholder API users endpoint
