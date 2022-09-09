@@ -1,4 +1,7 @@
 import React from "react";
+import Spinner from "./Spinner";
+import UserDetails from "./UserDetails";
+import { useGetUserByIdQuery } from "./userService";
 
 const Users = () => {
   return (
